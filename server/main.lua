@@ -54,12 +54,12 @@ RegisterServerEvent('bcc-bin:Reward', function()
                 randomMoney .. '$')
         end
 
-        if Config.grafanalog then
-            lib.logger(src, 'BCC BIN Reward', "BCC Bin: Player " .. character.firstname .. ' ' .. character.lastname .. " used a bin and received money.", 'PID: ' .. source, 'Logged Discord ID: ' .. playerDisocrdID, 'Logged License Key: ' .. playerLicenseKey, 'Reward: ' .. randomMoney .. '$')
+        if Config.oxLogger then
+            lib.logger(src, _U('oxLogRewardEvent'), _U('oxLogMessageStart') .. character.firstname .. ' ' .. character.lastname .. _U('oxLogReceivedMoney'), _U('oxLogPID') .. source, _U('oxLogDiscordId') .. playerDisocrdID, _U('oxLogLicenseKey') .. playerLicenseKey, _U('oxLogReward') .. randomMoney .. '$')
         end
 
         if Config.notify == 'ox' then
-            lib.notify(src, {description = _U('moneyfound') .. tostring(randomMoney), duration = 4000, type = 'success', position = 'center-right'}) 
+            lib.notify(src, {description = _U('moneyfound') .. tostring(randomMoney), duration = 4000, type = 'success', style = Config.oxstyle, position = Config.oxposition}) 
         elseif Config.notify == 'vorp' then
             VORPcore.NotifyRightTip(src, _U('moneyfound') .. tostring(randomMoney), 4000)
         end
@@ -75,7 +75,7 @@ RegisterServerEvent('bcc-bin:Reward', function()
         local canCarryItem = exports.vorp_inventory:canCarryItem(src, itemName, randomItemAmount)
         if not canCarryItem then
             if Config.notify == 'ox' then
-                lib.notify(src, {description = _U('noSpace'), duration = 4000, type = 'error', position = 'center-right'}) 
+                lib.notify(src, {description = _U('noSpace'), duration = 4000, type = 'error', style = Config.oxstyle, position = Config.oxposition}) 
             elseif Config.notify == 'vorp' then
                 VORPcore.NotifyRightTip(src, _U('noSpace'), 4000)
             end
@@ -93,11 +93,12 @@ RegisterServerEvent('bcc-bin:Reward', function()
                 itemName)
         end
 
-        if Config.grafanalog then
-            lib.logger(src, 'BCC BIN Reward', "BCC Bin: Player " .. character.firstname .. ' ' .. character.lastname .. ' used a bin and recevied a item.', 'PID: ' .. source, 'Logged Discord ID: ' .. playerDisocrdID, 'Logged License Key: ' .. playerLicenseKey, 'Reward: ' .. itemName)
+        if Config.oxLogger then
+            lib.logger(src, _U('oxLogRewardEvent'), _U('oxLogMessageStart') .. character.firstname .. ' ' .. character.lastname .. _U('oxLogReceivedItem'), _U('oxLogPID') .. source, _U('oxLogDiscordId') .. playerDisocrdID, _U('oxLogLicenseKey') .. playerLicenseKey, _U('oxLogReward') .. itemName)
         end
+        
         if Config.notify == 'ox' then
-            lib.notify(src, {description = _U('itemfound') .. ' ' .. itemLabel, duration = 4000, type = 'success', position = 'center-right'}) 
+            lib.notify(src, {description = _U('itemfound') .. ' ' .. itemLabel, duration = 4000, type = 'success', style = Config.oxstyle, position = Config.oxposition}) 
         elseif Config.notify == 'vorp' then
             VORPcore.NotifyRightTip(src, _U('itemfound') .. ' ' .. itemLabel, 4000)
         end
@@ -110,7 +111,7 @@ RegisterServerEvent('bcc-bin:Reward', function()
         local canCarryWeapon = exports.vorp_inventory:canCarryWeapons(src, 1, nil, randomWeapon)
         if not canCarryWeapon then
             if Config.notify == 'ox' then
-                lib.notify(src, {description = _U('noSpace'), duration = 4000, type = 'error', position = 'center-right'}) 
+                lib.notify(src, {description = _U('noSpace'), duration = 4000, type = 'error', style = Config.oxstyle, position = Config.oxposition}) 
             elseif Config.notify == 'vorp' then
                 VORPcore.NotifyRightTip(src, _U('noSpace'), 4000)
             end
@@ -129,12 +130,12 @@ RegisterServerEvent('bcc-bin:Reward', function()
                 randomWeapon)
         end
 
-        if Config.grafanalog then
-            lib.logger(src, 'BCC BIN Reward', "BCC Bin: Player " .. character.firstname .. ' ' .. character.lastname .. ' used a bin and received a weapon.', 'PID: ' .. source, 'Logged Discord ID: ' .. playerDisocrdID, 'Logged License Key: ' .. playerLicenseKey, 'Reward: ' .. randomWeapon)
+        if Config.oxLogger then
+            lib.logger(src, _U('oxLogRewardEvent'), _U('oxLogMessageStart') .. character.firstname .. ' ' .. character.lastname .. _U('oxLogReceivedWeapon'), _U('oxLogPID') .. source, _U('oxLogDiscordId') .. playerDisocrdID, _U('oxLogLicenseKey') .. playerLicenseKey, _U('oxLogReward') .. randomWeapon)
         end
 
         if Config.notify == 'ox' then
-            lib.notify(src, {description = _U('weaponfound') .. randomWeapon, duration = 4000, type = 'error', position = 'center-right'}) 
+            lib.notify(src, {description = _U('weaponfound') .. randomWeapon, duration = 4000, type = 'error', style = Config.oxstyle, position = Config.oxposition}) 
         elseif Config.notify == 'vorp' then
             VORPcore.NotifyRightTip(src, _U('weaponfound') .. randomWeapon, 4000)
         end

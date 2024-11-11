@@ -10,6 +10,7 @@
 - Configuration option to use ox_target instead of prompts
 - Configuration option to select the notification type from ox or vorp
 - Configuration option to enable disable discord logs and grafana logs.
+- Configuration option to change the design of ox_lib notification. Currently added a design that matched for RedM.
 
 ## Installation
 1. Make sure dependencies are installed/updated and ensured before this script

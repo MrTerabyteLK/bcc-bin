@@ -48,7 +48,7 @@ RegisterNetEvent('bcc-bin:SpawnBin', function(location)
                     local onCooldown = VORPcore.Callback.TriggerAwait('bcc-bin:CheckPlayerCooldown', 'useBin')
                     if onCooldown then
                         if Config.notify == 'ox' then
-                            lib.notify({description = _U('useCooldown'), duration = 4000, type = 'error', position = 'center-right'}) 
+                            lib.notify({description = _U('useCooldown'), duration = 4000, type = 'error', style = Config.oxstyle, position = Config.oxposition}) 
                         elseif Config.notify == 'vorp' then
                             VORPcore.NotifyRightTip(_U('useCooldown'), 4000)
                         end
@@ -78,7 +78,7 @@ if not Config.oxtarget then
                     local onCooldown = VORPcore.Callback.TriggerAwait('bcc-bin:CheckPlayerCooldown', 'useBin')
                     if onCooldown then
                         if Config.notify == 'ox' then
-                            lib.notify({description = _U('useCooldown'), duration = 4000, type = 'error', position = 'center-right'}) 
+                            lib.notify({description = _U('useCooldown'), duration = 4000, type = 'error', style = Config.oxstyle, position = Config.oxposition}) 
                         elseif Config.notify == 'vorp' then
                             VORPcore.NotifyRightTip(_U('useCooldown'), 4000)
                         end

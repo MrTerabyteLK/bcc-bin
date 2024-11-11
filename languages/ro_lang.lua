@@ -12,5 +12,15 @@ Locales["ro_lang"] = {
     webhookRewardI = "\nRecompensa obiect: ",
     webhookRewardW = "\nRecompensa Arma: ",
     noSpace = "You do not have enough space in your inventory.",
-    useCooldown = "You can't use the bin yet, check back later."
+    useCooldown = "You can't use the bin yet, check back later.",
+    -- Ox Logger Related
+    oxLogRewardEvent =  "BCC BIN Reward",
+    oxLogMessageStart = "BCC Bin: Player ",
+    oxLogReceivedMoney = " used a bin and received money.",
+    oxLogPID = "PID: ",
+    oxLogDiscordId = "Logged Discord ID: ",
+    oxLogLicenseKey = "Logged License Key: ",
+    oxLogReward = "Reward: ",
+    oxLogReceivedItem = " used a bin and recevied a item.",
+    oxLogReceivedWeapon = " used a bin and received a weapon.",
 }
